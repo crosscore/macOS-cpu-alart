@@ -5,6 +5,9 @@ DATA_FILES = []
 OPTIONS = {
     'argv_emulation': True,
     'packages': ['psutil'],
+    'plist': {
+        'LSUIElement': True,
+    },
 }
 
 setup(
