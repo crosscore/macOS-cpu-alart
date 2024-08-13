@@ -8,7 +8,6 @@ OPTIONS = {
     'plist': {
         'LSUIElement': True,
     },
-    'frameworks': ['Cocoa'],
 }
 
 setup(
