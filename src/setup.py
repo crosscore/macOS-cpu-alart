@@ -3,11 +3,12 @@ from setuptools import setup
 APP = ['cpu_monitor.py']
 DATA_FILES = []
 OPTIONS = {
-    'argv_emulation': True,
+    'argv_emulation': False,
     'packages': ['psutil'],
     'plist': {
         'LSUIElement': True,
     },
+    'frameworks': ['Cocoa'],
 }
 
 setup(
