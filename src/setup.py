@@ -4,7 +4,7 @@ APP = ['cpu_monitor.py']
 DATA_FILES = []
 OPTIONS = {
     'argv_emulation': False,
-    'packages': ['psutil'],
+    'packages': ['psutil', 'rumps'],
     'plist': {
         'LSUIElement': True,
     },
@@ -15,4 +15,5 @@ setup(
     data_files=DATA_FILES,
     options={'py2app': OPTIONS},
     setup_requires=['py2app'],
+    install_requires=['psutil', 'rumps'],
 )
