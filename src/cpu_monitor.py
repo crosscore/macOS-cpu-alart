@@ -5,7 +5,7 @@ import rumps
 # 閾値の設定
 threshold = 90  # %
 required_consecutive_checks = 3  # 連続して条件を満たす回数
-check_interval = 1  # 秒
+check_interval = 3  # 秒
 
 class CPUMonitorApp(rumps.App):
     def __init__(self):
