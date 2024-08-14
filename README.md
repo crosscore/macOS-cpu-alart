@@ -5,6 +5,12 @@
 python setup.py py2app
 ```
 
+## .appの起動
+```
+chmod -R 755 dist/CPUMonitor.app
+./dist/CPUMonitor.app/Contents/MacOS/CPUMonitor
+```
+
 ## .appファイルの移動
 ```
 mv dist/cpu_monitor.app ~/Applications/
