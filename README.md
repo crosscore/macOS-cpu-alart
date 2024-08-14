@@ -5,6 +5,10 @@
 python setup.py py2app
 ```
 
+## .appファイルの移動
+```
+mv dist/cpu_monitor.app ~/Applications/
+```
 
 ## 自動起動設定追加コマンド
 ```
