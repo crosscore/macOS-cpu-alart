@@ -12,7 +12,9 @@ mv dist/cpu_monitor.app ~/Applications/
 
 ## 自動起動設定追加コマンド
 ```
+# ctrl+X, Y, Enter
 nano ~/Library/LaunchAgents/com.yuu.cpumonitor.plist
+
 chmod 644 ~/Library/LaunchAgents/com.yuu.cpumonitor.plist
 launchctl load ~/Library/LaunchAgents/com.yuu.cpumonitor.plist
 ```
