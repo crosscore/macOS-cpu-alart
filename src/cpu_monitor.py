@@ -5,7 +5,7 @@ import rumps
 # 閾値の設定
 threshold = 90  # %
 required_consecutive_checks = 3  # 連続して条件を満たす回数
-check_interval = 1  # 秒
+check_interval = 1  # 秒 (1秒から3秒に変更)
 
 class CPUMonitorApp(rumps.App):
     def __init__(self):
@@ -16,7 +16,7 @@ class CPUMonitorApp(rumps.App):
 
     @rumps.timer(check_interval)
     def check_cpu_usage(self, _):
-        cpu_usage = psutil.cpu_percent(interval=None, percpu=True)
+        cpu_usage = psutil.cpu_percent(interval=0.1, percpu=True)  # interval=Noneから0.1に変更
         for i, usage in enumerate(cpu_usage):
             if usage > threshold:
                 self.consecutive_checks[i] += 1
@@ -28,7 +28,7 @@ class CPUMonitorApp(rumps.App):
                 self.consecutive_checks[i] = 0  # リセット
 
         # Update menu bar title with overall CPU usage, right-aligned with space padding
-        overall_usage = psutil.cpu_percent(interval=None)
+        overall_usage = psutil.cpu_percent(interval=0.1)  # interval=Noneから0.1に変更
         usage_str = f"{overall_usage:.1f}".rjust(5)  # 5 characters total (including decimal point)
         self.title = f"CPU: {usage_str}%"
 
