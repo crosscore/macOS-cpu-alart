@@ -4,7 +4,7 @@ APP = ['cpu_monitor.py']
 DATA_FILES = []
 OPTIONS = {
     'argv_emulation': False,
-    'packages': ['psutil', 'rumps', 'jaraco.text'],
+    'packages': ['psutil', 'rumps'],
     'plist': {
         'LSUIElement': True,
         'CFBundleIdentifier': 'com.yuu.cpumonitor',
@@ -19,5 +19,5 @@ setup(
     data_files=DATA_FILES,
     options={'py2app': OPTIONS},
     setup_requires=['py2app'],
-    install_requires=['psutil', 'rumps', 'jaraco.text'],
+    install_requires=['psutil', 'rumps'],
 )
