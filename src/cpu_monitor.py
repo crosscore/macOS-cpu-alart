@@ -28,10 +28,17 @@ class CPUMonitorApp(rumps.App):
         logging.info("CPUMonitorApp initialized")
 
     @rumps.timer(check_interval)
-    def check_cpu_usage(self, _):
+    def check_cpu_and_memory_usage(self, _):
         try:
+            # CPU使用率を取得
             cpu_usage = psutil.cpu_percent(interval=0.1, percpu=True)
             highest_usage = max(cpu_usage)
+
+            # メモリ使用量を取得
+            mem = psutil.virtual_memory()
+            mem_used = mem.used >> 30  # GB単位に変換
+            mem_total = mem.total >> 30 # GB単位に変換
+            mem_usage_str = f"{mem_used}/{mem_total}GB"
 
             # CPU使用率が閾値を超えた場合のみログを出力
             if highest_usage > threshold:
@@ -48,17 +55,19 @@ class CPUMonitorApp(rumps.App):
 
             # メニューバータイトルを更新
             usage_str = f"{highest_usage:.1f}".rjust(5)  # 5 characters total (including decimal point)
-            self.title = f"CPU: {usage_str}%"
+            self.title = f"CPU: {usage_str}% | MEM: {mem_usage_str}"
 
             # サブメニューに各コアの使用率を表示
             self.menu.clear()
             for i, usage in enumerate(cpu_usage):
                 self.menu.add(rumps.MenuItem(f"Core {i}: {usage:.1f}%"))
             self.menu.add(None)  # セパレータを追加
+            self.menu.add(rumps.MenuItem(f"Memory: {mem_usage_str}"))
+            self.menu.add(None) # セパレータを追加
             self.menu.add(rumps.MenuItem("Quit", callback=self.quit_app))
 
         except Exception as e:
-            logging.exception(f"Error in check_cpu_usage: {e}")
+            logging.exception(f"Error in check_cpu_and_memory_usage: {e}")
 
     def quit_app(self, _):
         logging.info("Quitting application")
