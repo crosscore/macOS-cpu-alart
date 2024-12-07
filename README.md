@@ -13,7 +13,7 @@ chmod -R 755 dist/CPUMonitor.app
 
 ## .appファイルの移動
 ```
-mv dist/cpu_monitor.app ~/Applications/
+mv dist/CPUMonitor.app ~/Applications/
 chmod +x ~/Applications/CPUMonitor.app/Contents/MacOS/CPUMonitor
 ```
 
@@ -23,7 +23,7 @@ chmod +x ~/Applications/CPUMonitor.app/Contents/MacOS/CPUMonitor
 nano ~/Library/LaunchAgents/com.yuu.cpumonitor.plist
 
 chmod 644 ~/Library/LaunchAgents/com.yuu.cpumonitor.plist
-launchctl load ~/Library/LaunchAgents/com.yuu.cpumonitor.plist
+launchctl bootstrap gui/$UID ~/Library/LaunchAgents/com.yuu.cpumonitor.plist
 ```
 
 ```com.yuu.cpumonitor.plist
@@ -35,7 +35,7 @@ launchctl load ~/Library/LaunchAgents/com.yuu.cpumonitor.plist
     <string>com.yuu.cpumonitor</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/Applications/CPUMonitor.app/Contents/MacOS/CPUMonitor</string>
+        <string>/Users/yuu/Applications/CPUMonitor.app/Contents/MacOS/CPUMonitor</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
