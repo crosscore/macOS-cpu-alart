@@ -1,2 +1,4 @@
 psutil
 rumps
+jaraco.text
+py2app
