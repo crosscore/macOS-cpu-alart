@@ -14,7 +14,7 @@ chmod -R 755 dist/CPUMonitor.app
 ## .appファイルの移動
 ```
 mv dist/cpu_monitor.app ~/Applications/
-chmod +x ~/Applications/cpu_monitor.app/Contents/MacOS/cpu_monitor
+chmod +x ~/Applications/CPUMonitor.app/Contents/MacOS/CPUMonitor
 ```
 
 ## 自動起動設定追加コマンド
