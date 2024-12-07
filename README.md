@@ -35,7 +35,7 @@ launchctl load ~/Library/LaunchAgents/com.yuu.cpumonitor.plist
     <string>com.yuu.cpumonitor</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/Applications/cpu_monitor.app/Contents/MacOS/cpu_monitor</string>
+        <string>/Applications/CPUMonitor.app/Contents/MacOS/CPUMonitor</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
